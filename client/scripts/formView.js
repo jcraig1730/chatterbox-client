@@ -10,16 +10,15 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
-    // console.log($('#message')[0].value)
-    // console.log($('#message'))
-    // console.log(App.username)
-    Parse.create({username: App.username, text: $('#message')[0].value, roomname: 'this room!'})
-    // App.fetch((data)=> console.log(data))
+    Parse.create({
+      username: App.username,
+      text: $('#message')[0].value,
+      roomname: $('select')[0].value
+    });
   },
 
   setStatus: function(active) {
     var status = active ? 'true' : null;
     FormView.$form.find('input[type=submit]').attr('disabled', status);
   }
-
 };

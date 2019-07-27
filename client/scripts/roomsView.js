@@ -4,15 +4,18 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    // App.fetch((data)=> {
-    //   console.log(data)
-    //   // let roomNames = data.results.map(record => record.roomName)
-    //   // console.log(roomNames)
-    // })
+    let rooms = Object.keys(Rooms.roomList);
+    rooms.forEach(room => {
+      RoomsView.renderRoom(room);
+    });
+
+    $('button').on('click', function(){
+      var newRoom = prompt('Please add a new room');
+      Rooms.add(newRoom);
+    });
   },
 
   renderRoom: function(room) {
-    // $('#rooms select').append(`<div>${room}</div>`)
+    $('#rooms select').append(`<option value='${room}'>${room}</option>`);
   }
-
 };

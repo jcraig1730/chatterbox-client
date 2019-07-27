@@ -28,9 +28,10 @@ var App = {
       //   $('#chats').append(msg)
       // });
       data.results.forEach(item => Messages.allMessages.push(item));
+      data.results.forEach(item => Rooms.roomList[item.roomname] = true);
       console.log(Messages.allMessages)
       MessagesView.renderMessage(Messages.allMessages);
-
+      RoomsView.initialize();
 
       callback();
 
