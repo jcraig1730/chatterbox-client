@@ -1,5 +1,4 @@
 var App = {
-
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
@@ -12,28 +11,25 @@ var App = {
     MessagesView.initialize();
     Friends.initialize(); // added
 
-
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
   },
 
-
-  fetch: function(callback = ()=>{}) {
-    Parse.readAll((data) => {
+  fetch: function(callback = () => {}) {
+    Parse.readAll(data => {
       // examine the response from the server request:
       // data.results.forEach(line => {
       //   var msg = MessageView.render({text: line.text, username: line.username, roomname: line.roomname})
       //   $('#chats').append(msg)
       // });
       data.results.forEach(item => Messages.allMessages.push(item));
-      console.log(Messages.allMessages)
+      data.results.forEach(item => (Rooms.roomList[item.roomname] = true));
+      console.log(Messages.allMessages);
       MessagesView.renderMessage(Messages.allMessages);
-
+      RoomsView.initialize();
 
       callback();
-
     });
   },
 
