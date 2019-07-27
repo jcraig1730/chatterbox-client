@@ -12,7 +12,7 @@ var RoomsView = {
   },
 
   renderRoom: function(room) {
-    $('#rooms select').append(`<div>${room}</div>`)
+    // $('#rooms select').append(`<div>${room}</div>`)
   }
 
 };

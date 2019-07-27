@@ -13,7 +13,6 @@ var FormView = {
     // console.log($('#message')[0].value)
     // console.log($('#message'))
     // console.log(App.username)
-    console.log($('select'))
     Parse.create({username: App.username, text: $('#message')[0].value, roomname: 'this room!'})
     // App.fetch((data)=> console.log(data))
   },

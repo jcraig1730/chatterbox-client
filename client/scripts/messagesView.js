@@ -2,14 +2,6 @@ var MessagesView = {
 
   $chats: $('#chats'),
 
-  template: _.template(
-    `<h1>Messages</h1>
-    <div><%= name %></div>
-    <div><%= text %></div>
-    <div><%= createdAt %></div>
-    `
-  ),
-
   initialize: function() {
 
   },
@@ -17,8 +9,23 @@ var MessagesView = {
   render: function() {
   },
 
-  renderMessage: function(message){
-    $('#chats').append(MessageView.render(message))
+  renderMessage: function(messages){
+    console.log(messages)
+    if (messages.constructor === [].constructor) {
+      messages.forEach(message => {
+        if (!message.roomname) message.roomname = '';
+        if (!message.text) message.text = '';
+        if (!message.username) message.username = '';
+        $('#chats').append(MessageView.render(message))
+      })
+    } else {
+      if (!message.roomname) message.roomname = '';
+      if (!message.text) message.text = '';
+      if (!message.username) message.username = '';
+      $('#chats').append(MessageView.render(message))
+    }
+
+    // $('#chats').append(MessageView.render(message))
   }
 
 };
