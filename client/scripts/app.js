@@ -10,6 +10,9 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    Friends.initialize();
+    // Messages.initialize();
+    // $('.username')
 
     // Fetch initial batch of messages
     App.startSpinner();
@@ -17,10 +20,15 @@ var App = {
 
   },
 
+
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      data.results.forEach(line => {
+        var msg = MessageView.render({text: line.text, username: line.username, roomname: line.roomname})
+        $('#chats').append(msg)
+      })
+
 
       callback();
     });

@@ -4,9 +4,15 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+    // App.fetch((data)=> {
+    //   console.log(data)
+    //   // let roomNames = data.results.map(record => record.roomName)
+    //   // console.log(roomNames)
+    // })
   },
 
-  render: function() {
+  renderRoom: function(room) {
+    $('#rooms select').append(`<div>${room}</div>`)
   }
 
 };
