@@ -1,5 +1,4 @@
 var FormView = {
-
   $form: $('form'),
 
   initialize: function() {

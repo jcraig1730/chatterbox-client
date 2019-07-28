@@ -1,5 +1,4 @@
 var App = {
-
   $spinner: $('.spinner img'),
 
   username: 'anonymous',
@@ -23,6 +22,7 @@ var App = {
 
     $('#friendBtn').on('click', function(){
       modal.style.display = 'block';
+      $(".allFriends").empty();
       Friends.friendList.forEach(friend => {
         $(".allFriends").append(`<p>${friend}</p>`)
       });
@@ -44,12 +44,10 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
   },
 
-
-  fetch: function(callback = ()=>{}) {
-    Parse.readAll((data) => {
+  fetch: function(callback = () => {}) {
+    Parse.readAll(data => {
       // examine the response from the server request:
       // data.results.forEach(line => {
       //   var msg = MessageView.render({text: line.text, username: line.username, roomname: line.roomname})
@@ -62,7 +60,6 @@ var App = {
       RoomsView.initialize();
 
       callback();
-
     });
   },
 

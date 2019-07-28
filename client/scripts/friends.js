@@ -19,11 +19,4 @@ var Friends = {
     });
   },
 
-  // showFriends: function(){
-  //   console.log('please work')
-  //   var modal = $('#friendModal');
-  //   var span = $('.close')[0]
-  //   modal.style.display = 'block';
-  // }
-
 };
