@@ -9,7 +9,7 @@ var RoomsView = {
       RoomsView.renderRoom(room);
     });
 
-    $('button').on('click', function(){
+    RoomsView.$button.on('click', function(){
       var newRoom = prompt('Please add a new room');
       Rooms.add(newRoom);
     });

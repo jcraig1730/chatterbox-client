@@ -9,17 +9,21 @@ var Friends = {
     } else {
       this.friendList.push(name);
     }
-    console.log(this.friendList)
   },
 
   friendList: [],
 
   initialize: function(){
-
     $(document).on('click', '.username', function(element){
-      console.log(element.target.innerText);
       Friends.toggleStatus(element.target.innerText)
     });
-  }
+  },
+
+  // showFriends: function(){
+  //   console.log('please work')
+  //   var modal = $('#friendModal');
+  //   var span = $('.close')[0]
+  //   modal.style.display = 'block';
+  // }
 
 };

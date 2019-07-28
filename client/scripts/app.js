@@ -12,6 +12,34 @@ var App = {
     MessagesView.initialize();
     Friends.initialize(); // added
 
+    var modal = $('.friend-content')[0];
+    var span = $('.close')[0]
+
+//     // Get the modal
+// var modal = document.getElementById("friendModal");
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+    $('#friendBtn').on('click', function(){
+      modal.style.display = 'block';
+      Friends.friendList.forEach(friend => {
+        $(".allFriends").append(`<p>${friend}</p>`)
+      });
+    });
+
+    span.onclick = function () {
+      modal.style.display = "none"
+    }
+
+
+    // window.onclick = function(event) {
+    //   if (event.target == modal) {
+
+    //     modal.style.display = "none";
+    //   }
+    // }
+
 
     // Fetch initial batch of messages
     App.startSpinner();
